@@ -1,10 +1,10 @@
-# 🔐 RegoGPT
+# RegoGPT
 
 **RegoGPT** is an AI-powered Rego policy generator that translates natural language prompts into valid, production-grade Rego policies for use with [Open Policy Agent (OPA)](https://www.openpolicyagent.org/). It uses Groq-hosted LLMs and a custom document retrieval system to generate policies. 
 
 ---
 
-## 🚀 Features
+## Features
 
 - Description of the policy to Rego conversion
 - 3 LLM model selections: LLaMA 3, DeepSeek, Qwen
@@ -12,7 +12,7 @@
 - Policy explanation feature
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 RegoGPT/
@@ -26,7 +26,7 @@ RegoGPT/
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### 1. Clone the repo and install dependencies
 
@@ -47,7 +47,7 @@ GROQ_API_KEY=your-groq-api-key-here
 
 ---
 
-## ▶️ Run the App
+## Run the App
 
 ```bash
 streamlit run app.py
@@ -57,7 +57,7 @@ Visit: [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## ✍️ Example Prompts
+## Example Prompts
 
 - `Deny users who do not have MFA enabled`
 - `Restrict access from South Korea, China, and Iraq`
@@ -66,11 +66,11 @@ Visit: [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## 🌐 Roadmap
+## Roadmap
 
 - Coming soon: Add `opa eval` integration to test policies
 ---
 
-## 👩🏽‍💻 Built by Bina
+## Built by Bina
 
-Security + AI = 🔐💡
+Security + AI 
