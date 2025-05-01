@@ -11,7 +11,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 client = Groq(api_key=GROQ_API_KEY)
 
 # Set Steamlit UI
-st.title("🛡️ RegoGPT", layout="centered")
+st.title("🛡️ RegoGPT")
 
 #Model options
 MODEL_OPTIONS = [
