@@ -1,5 +1,3 @@
-pandas 
-scikit-learn
-flask
-joblib
-numpy
+groq
+streamlit
+dotenv

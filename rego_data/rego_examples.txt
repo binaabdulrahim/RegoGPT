@@ -1,0 +1,26 @@
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "Public S3 bucket detected"
+}
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "Pods must run as non-root"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "Logging must be enabled for GCS buckets"
+}

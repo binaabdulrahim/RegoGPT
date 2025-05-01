@@ -1,0 +1,22 @@
+Open Policy Agent (OPA) is a general-purpose policy engine that enables unified, context-aware policy enforcement.
+
+Rego is OPA's query language that lets you write policy decisions as code.
+
+Common Rego Concepts:
+- Package: A namespace (e.g., package example.authz)
+- Input: External JSON data passed to the policy (e.g., input.user)
+- Rules: Logic that returns a value (true/false or deny[msg])
+
+Examples:
+
+deny[msg] {
+  input.user.role == "guest"
+  msg := "Access denied for guest users"
+}
+
+allow {
+  input.user.authenticated == true
+}
+
+OPA Evaluation Example:
+opa eval -i input.json -d policy.rego "data.authz.allow"
