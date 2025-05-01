@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 import os
 from groq import Groq
 from dotenv import load_dotenv
@@ -57,7 +58,10 @@ Policy Description:
                 ],
                 temperature=0.3
             )
-            output = chat_completion.choices[0].message.content.strip()
+            raw_output = chat_completion.choices[0].message.content.strip()
+            # Remove <think>...</think> tags and content inside them
+            output = re.sub(r"<think>.*?</think>", "", raw_output, flags=re.DOTALL).strip()
+
             st.subheader("🧾 Generated REGO Policy:")
             st.code(output, language="rego")
             st.session_state["generated_rego"] = output
@@ -76,3 +80,13 @@ if "generated_rego" in st.session_state and st.button("Explain Policy"):
         )
         st.subheader("📘 Explanation:")
         st.write(explanation.choices[0].message.content.strip())
+
+#Download rego
+if "generated_rego" in st.session_state:
+    st.download_button(
+        label="Download REGO Policy",
+        data=st.session_state["generated_rego"],
+        file_name="generated_policy.rego",
+        mime="text/plain",
+        help="Download the generated REGO policy file"
+    )
