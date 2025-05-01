@@ -18,9 +18,758 @@ violation[msg] {
   msg := "Pods must run as non-root"
 }
 
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "Deployment must have at least 3 replicas for HA"
+}
+
 package gcp.storage
 
 deny[msg] {
   not input.bucket.logging.enabled
   msg := "Logging must be enabled for GCS buckets"
+}
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "Default admin username 'admin' is not allowed"
+}
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[1] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[2] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[3] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[4] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[5] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[6] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[7] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[8] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[9] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[10] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[11] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[12] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[13] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[14] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[15] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[16] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[17] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[18] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[19] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[20] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[21] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[22] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[23] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[24] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[25] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[26] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[27] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[28] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[29] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[30] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[31] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[32] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[33] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[34] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[35] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[36] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[37] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[38] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[39] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[40] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[41] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[42] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[43] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[44] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[45] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[46] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[47] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[48] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[49] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[50] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[51] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[52] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[53] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[54] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[55] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[56] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[57] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[58] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[59] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[60] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[61] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[62] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[63] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[64] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[65] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[66] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[67] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[68] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[69] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[70] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[71] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[72] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[73] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[74] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[75] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[76] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[77] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[78] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[79] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[80] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[81] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[82] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[83] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[84] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[85] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[86] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[87] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[88] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[89] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[90] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[91] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[92] Logging must be enabled for GCS buckets"
+}
+
+package gcp.storage
+
+deny[msg] {
+  input.bucket.uniform_bucket_level_access != true
+  msg := "[93] Uniform bucket-level access must be enabled"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.admin_username == "admin"
+  msg := "[94] Default admin username 'admin' is not allowed"
+}
+
+package azure.vm
+
+deny[msg] {
+  input.vm.os_disk.encryption.enabled != true
+  msg := "[95] VM OS disk must be encrypted"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.acl == "public-read"
+  msg := "[96] Public S3 bucket detected"
+}
+
+package aws.s3
+
+deny[msg] {
+  input.bucket.encryption != "enabled"
+  msg := "[97] S3 bucket must be encrypted"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Pod"
+  input.spec.securityContext.runAsNonRoot != true
+  msg := "[98] Pods must run as non-root"
+}
+
+package k8s.admission
+
+violation[msg] {
+  input.kind == "Deployment"
+  input.spec.replicas < 3
+  msg := "[99] Deployment must have at least 3 replicas for HA"
+}
+
+package gcp.storage
+
+deny[msg] {
+  not input.bucket.logging.enabled
+  msg := "[100] Logging must be enabled for GCS buckets"
 }

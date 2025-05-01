@@ -7,6 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Load embedding model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
+#Chunking breaks down data into small dataset 
 def load_and_chunk_docs(path="rego_data", chunk_size=1000):
     all_chunks = []
     for fname in os.listdir(path):
@@ -19,6 +20,7 @@ def load_and_chunk_docs(path="rego_data", chunk_size=1000):
                         all_chunks.append(chunk)
     return all_chunks
 
+#k is memory context
 def get_top_chunks(query, k=3):
     chunks = load_and_chunk_docs()
     chunk_embeddings = model.encode(chunks)

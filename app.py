@@ -11,7 +11,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 client = Groq(api_key=GROQ_API_KEY)
 
 # Set Steamlit UI
-st.title("🛡️ RegoGPT")
+st.title("RegoGPT")
 
 #Model options
 MODEL_OPTIONS = [
@@ -22,11 +22,11 @@ MODEL_OPTIONS = [
 selected_model = st.selectbox("Choose a model:", MODEL_OPTIONS)
 
 # User input
-user_prompt = st.text_area("📝 Enter policy description.")
+user_prompt = st.text_area("Enter policy description.")
 
 
 # Generate button
-if st.button("🚀 Generate Policy"):
+if st.button("Generate Policy"):
     if not user_prompt.strip():
         st.warning("Enter policy description.")
     else:
@@ -72,7 +72,7 @@ if "generated_rego" in st.session_state and st.button("Explain Policy"):
                 {"role": "system", "content": "You are a Rego policy expert who explains code simply."},
                 {"role": "user", "content": explanation_prompt}
             ],
-            temperature=0.3
+            temperature=0.1
         )
         st.subheader("📘 Explanation:")
         st.write(explanation.choices[0].message.content.strip())

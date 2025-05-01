@@ -1,3 +1,4 @@
 groq
 streamlit
 dotenv
+# add this to the code: Don't display full your thinking process to the user.
