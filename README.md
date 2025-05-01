@@ -38,6 +38,7 @@ pip install streamlit sentence-transformers scikit-learn python-dotenv groq
 
 ### 2. Add your Groq API key
 Get your Groq API Keys here: https://console.groq.com/home
+
 Create a `.env` file in the root:
 
 ```
