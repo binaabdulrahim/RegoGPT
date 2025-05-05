@@ -42,7 +42,6 @@ RegoGPT/
 
 ### 1. Set up Virtual Environment 
 
-## Set up Virtual Environment
 #### Mac
 1. python3 -m venv venv
 2. source venv/bin/activate
@@ -51,7 +50,7 @@ RegoGPT/
 1. python3 -m venv venv
 2. venv/Scripts/activate
    
-### 2.Clone the repo and install dependencies
+### 2. Clone the repo and install dependencies
 
 ```bash
 pip install -r requirements.txt
