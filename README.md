@@ -20,9 +20,6 @@ A policy is simply a set of conditions or statements that define what is allowed
 - Context-aware policy generation using real Rego docs
 - Policy explanation feature
 ---
-## Takeway
-- The key takeway from this project is that I learned about Groq API, which is a tool that provides free API that streamlines the development process. It also includes up to date LLM models and has one of best documentation. I also had to do some research to understand vectors (embeddings) and cosine similarity. In short, vector embeddings just turns words or sentences into numbers. And cosine similarity is the mesasurment of similarties. Think "dog" and "puppy" which are similiar in meaning so it means it has a high similarity or close to 1. Cosine similarity comes in 3 ranges: 1.0: very similar, 0.0: different, and -1.0: opposite meanings. In order to use turn sentences into numerical embeddings, I utilitzed a Python library called sentence-transformers. 
-
 
 ## Folder Structure
 
