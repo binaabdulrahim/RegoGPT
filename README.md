@@ -2,6 +2,14 @@
 
 **RegoGPT** is an AI-powered Rego policy generator that translates natural language prompts into valid, production-grade Rego policies for use with [Open Policy Agent (OPA)](https://www.openpolicyagent.org/). It uses Groq-hosted LLMs and a custom document retrieval system to generate policies. 
 
+# OPA
+OPA stands for [Open Policy Agent] (https://www.openpolicyagent.org/), which is an open-source policy engine used 
+
+# Rego
+
+# Why use Rego to make Policies?
+A policy is just a set of conditions or statement that define what is aloowed or denied. 
+
 ---
 
 ## Features
